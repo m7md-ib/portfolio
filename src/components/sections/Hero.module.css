@@ -1,0 +1,205 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+/* Background glow orbs */
+.orb {
+  position: absolute;
+  top: -200px;
+  right: -100px;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(200,240,76,0.08) 0%, transparent 70%);
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+
+.orbSecondary {
+  position: absolute;
+  bottom: -300px;
+  left: -200px;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(100,120,200,0.06) 0%, transparent 70%);
+  pointer-events: none;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-30px) scale(1.03); }
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+/* Availability badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-full);
+  background: var(--accent-dim);
+  border: 1px solid rgba(200,240,76,0.2);
+  font-size: 12px;
+  font-family: var(--font-mono);
+  color: var(--accent);
+  margin-bottom: 28px;
+  animation: fadeDown 0.8s var(--ease-out) both;
+}
+
+/* Pulsing green dot */
+.pulse {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  position: relative;
+}
+.pulse::after {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: var(--accent);
+  opacity: 0.4;
+  animation: ping 1.5s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+@keyframes ping {
+  0% { transform: scale(1); opacity: 0.4; }
+  100% { transform: scale(2.2); opacity: 0; }
+}
+
+/* Headline */
+.headline {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+
+.hi {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 400;
+  color: var(--text-secondary);
+  animation: fadeUp 0.8s 0.1s var(--ease-out) both;
+}
+
+.name {
+  font-family: var(--font-display);
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  animation: fadeUp 0.8s 0.2s var(--ease-out) both;
+}
+
+.role {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 1.1;
+  color: var(--accent);
+  animation: fadeUp 0.8s 0.3s var(--ease-out) both;
+}
+
+.tagline {
+  font-size: clamp(15px, 2vw, 18px);
+  color: var(--text-secondary);
+  max-width: 520px;
+  line-height: 1.65;
+  margin-bottom: 40px;
+  animation: fadeUp 0.8s 0.4s var(--ease-out) both;
+}
+
+.ctas {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 48px;
+  animation: fadeUp 0.8s 0.5s var(--ease-out) both;
+}
+
+.socials {
+  display: flex;
+  gap: 24px;
+  animation: fadeUp 0.8s 0.6s var(--ease-out) both;
+}
+
+.socialLink {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+  transition: color 0.2s;
+  position: relative;
+}
+.socialLink::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.3s var(--ease-out);
+}
+.socialLink:hover { color: var(--accent); }
+.socialLink:hover::after { width: 100%; }
+
+/* Scroll indicator */
+.scrollHint {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  animation: fadeUp 1s 1s var(--ease-out) both;
+}
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, transparent, var(--border-hover));
+  animation: scroll 2s ease-in-out infinite;
+}
+@keyframes scroll {
+  0%, 100% { transform: scaleY(1) translateY(0); opacity: 1; }
+  50% { transform: scaleY(0.5) translateY(8px); opacity: 0.4; }
+}
+
+/* Keyframe helpers */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 480px) {
+  .scrollHint { display: none; }
+  .ctas { flex-direction: column; }
+}
