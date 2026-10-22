@@ -78,37 +78,4 @@ export const projects = [
     githubUrl: "https://github.com/m7md-ib/HR-System",
     featured: true,
   },
-  {
-    id: 3,
-    title: "E-Learning System",
-    description:
-      "Full-stack e-learning platform that allows users to browse courses, enroll, and track their progress. Includes authentication, course management, and responsive UI.",
-    tags: ["React.js", "Node.js", "Express.js", "MongoDB"],
-    image: null,
-    liveUrl: "",
-    githubUrl: "",
-    featured: false,
-  },
-  {
-    id: 4,
-    title: "Session Booking Website",
-    description:
-      "Booking system that enables users to schedule and manage sessions, with REST APIs on Node.js/Express and MongoDB for storage.",
-    tags: ["React.js", "Node.js", "Express.js", "MongoDB"],
-    image: null,
-    liveUrl: "",
-    githubUrl: "",
-    featured: false,
-  },
-  {
-    id: 5,
-    title: "Todo List Application",
-    description:
-      "Simple and responsive to-do list app that allows users to add, update, and delete tasks with real-time UI updates.",
-    tags: ["JavaScript", "HTML", "CSS"],
-    image: null,
-    liveUrl: "https://taskflow-todo-app-tst4.vercel.app/",
-    githubUrl: "",
-    featured: false,
-  },
 ];
